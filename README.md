@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Baarez AI Sales Dashboard
 
-## Getting Started
+Baarez is a high-performance, AI-driven sales analytics dashboard built with Next.js, TypeScript, and Recharts. It provides real-time visualizations, KPI monitoring, and an intelligent AI Sales Assistant for deep data analysis.
 
-First, run the development server:
+![Baarez Dashboard](https://images.unsplash.com/photo-1551288049-bbda38a5fbd5?auto=format&fit=crop&q=80&w=2070)
 
+## 🚀 Features
+
+- **Intelligence-First Analytics**: Recharts-powered Bar, Line, and Donut charts with currency-aware tooltips.
+- **AI Sales Assistant**: Powered by OpenAI's `gpt-4o-mini`, providing context-aware insights based on your sales data.
+- **Dynamic Data Mobility**: Bring your own data with the custom CSV upload tool or explore with built-in sample sets.
+- **Elite Dark Mode**: Persistent theme management with system preference detection and smooth transitions.
+- **Responsive Mastery**: Pixel-perfect layouts for Mobile, Tablet, and Desktop views.
+- **Safety First**: Integrated simulation mode for testing AI components without an API key.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14+ (App Router)
+- **Language**: TypeScript (Strict)
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Visuals**: Recharts
+- **AI**: OpenAI SDK
+
+## 🏁 Getting Started
+
+### 1. Prerequisites
+- Node.js 18.x or later
+- npm or yarn
+
+### 2. Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repository
+git clone <repo-url>
+cd barez
+
+# Install dependencies
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Environment Setup
+Create a `.env.local` file in the root directory:
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Running Locally
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤖 Simulation vs. Live Mode
 
-## Learn More
+Baarez is designed for flexibility during review:
+- **Live AI Mode**: Requires a valid `OPENAI_API_KEY`. Provides real-time, context-aware sales analysis.
+- **Simulation Mode**: If the API key is missing, the system automatically enters Simulation Mode. The AI Assistant will still respond with structured mock data, allowing you to test the "Thinking" UI and interaction flow without cost.
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Data Model (CSV Schema)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To upload your own data, ensure your CSV follows this format:
+`date, product, revenue, units_sold, region`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Example:
+`2024-03-01, CloudSync Pro, 125000, 450, North`
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+Baarez is a proprietary product of the development team. All rights reserved.
