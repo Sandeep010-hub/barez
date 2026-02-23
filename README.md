@@ -1,68 +1,67 @@
 # Baarez AI Sales Dashboard
+Live Demo: [https://barez-ai.vercel.app/](https://barez-ai.vercel.app/)
 
-Baarez is a high-performance, AI-driven sales analytics dashboard built with Next.js, TypeScript, and Recharts. It provides real-time visualizations, KPI monitoring, and an intelligent AI Sales Assistant for deep data analysis.
+Baarez is a high-performance, AI-driven sales analytics suite built with Next.js, TypeScript, and Tailwind CSS. Designed for the "AI-Native" era, it transforms raw sales data into actionable intelligence through interactive visualizations and a context-aware AI Assistant.
 
-![Baarez Dashboard](https://images.unsplash.com/photo-1551288049-bbda38a5fbd5?auto=format&fit=crop&q=80&w=2070)
+## 💎 Core Features
 
-## 🚀 Features
+- **Intelligence-First Analytics**: Recharts-powered Bar, Line, and Donut charts with currency-aware tooltips and responsive scaling.
+- **AI Sales Assistant**: Powered by OpenAI's `gpt-4o-mini`, providing deep insights based on real-time dataset summaries.
+- **The "Neural Experience"**: Implemented the specific `Promise.all` logic pattern ensuring a minimum 1.5s "reassuring thinking" delay on every request.
+- **Dynamic Data Mobility**: Features a custom CSV upload engine allowing users to visualize and analyze their own datasets instantly.
+- **Elite UI/UX**: A full-width "Intelligence Hub" vertical layout that eliminates horizontal scrolling and optimizes readability across all devices.
+- **Production Resilience**: Features a "Simulation Mode" fallback, allowing the full UI and interaction flow to be tested even without an OpenAI API key.
 
-- **Intelligence-First Analytics**: Recharts-powered Bar, Line, and Donut charts with currency-aware tooltips.
-- **AI Sales Assistant**: Powered by OpenAI's `gpt-4o-mini`, providing context-aware insights based on your sales data.
-- **Dynamic Data Mobility**: Bring your own data with the custom CSV upload tool or explore with built-in sample sets.
-- **Elite Dark Mode**: Persistent theme management with system preference detection and smooth transitions.
-- **Responsive Mastery**: Pixel-perfect layouts for Mobile, Tablet, and Desktop views.
-- **Safety First**: Integrated simulation mode for testing AI components without an API key.
+## 🤖 AI Interaction & Logic Flow
+This application strictly follows the Baarez Backend POC interaction pattern:
+
+1.  **Context Building**: The app generates a `dataSummary` string (Total Revenue, Product list, Regions) from the current CSV rows.
+2.  **Parallel Execution**: Upon submission, the app triggers a real API call and a 1500ms minimum timeout simultaneously.
+3.  **State Locking**: The input and "Ask AI" buttons are disabled during processing to prevent race conditions.
+4.  **Resolution**: The response is displayed in a styled `InsightCard` only after both the API and the minimum delay have resolved.
 
 ## 🛠️ Tech Stack
-
 - **Framework**: Next.js 14+ (App Router)
-- **Language**: TypeScript (Strict)
+- **Language**: TypeScript (Strict Mode)
 - **Styling**: Tailwind CSS
+- **Visuals**: Recharts (ResponsiveContainer)
 - **Icons**: Lucide React
-- **Visuals**: Recharts
-- **AI**: OpenAI SDK
+- **AI Integration**: OpenAI SDK
 
 ## 🏁 Getting Started
 
-### 1. Prerequisites
-- Node.js 18.x or later
-- npm or yarn
+### 1. Live Deployment
+Access the production build at: [https://barez-ai.vercel.app/](https://barez-ai.vercel.app/).
 
-### 2. Installation
+### 2. Installation (Local)
 ```bash
 # Clone the repository
-git clone <repo-url>
+git clone https://github.com/Sandeep010-hub/barez.git
 cd barez
 
 # Install dependencies
 npm install
 ```
 
-### 3. Environment Setup
-Create a `.env.local` file in the root directory:
+### 3. Environment Configuration
+Create a `.env.local` file in the root directory. This project includes an API Fallback; if no key is provided, it will function in Simulation Mode.
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### 4. Running Locally
+### 4. Run Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
+Access the dashboard at `http://localhost:3000`.
 
-## 🤖 Simulation vs. Live Mode
+## 📊 Evaluation Checkpoints
 
-Baarez is designed for flexibility during review:
-- **Live AI Mode**: Requires a valid `OPENAI_API_KEY`. Provides real-time, context-aware sales analysis.
-- **Simulation Mode**: If the API key is missing, the system automatically enters Simulation Mode. The AI Assistant will still respond with structured mock data, allowing you to test the "Thinking" UI and interaction flow without cost.
+- **Layout**: Follows the 3-part vertical stack (Navbar, Dashboard, AI Panel).
+- **KPI Accuracy**: Dynamically calculates Total Revenue ($1,243,500), Units Sold (3,363), Best Product (CloudSync Pro), and Best Region (West) from the 17-record sample set.
+- **Responsiveness**: Tested for Desktop (1280px+), Tablet, and Mobile (375px).
+- **Bonus Implementation**: Includes Dark Mode, CSV Upload, Copy-to-Clipboard, and Auto-scroll history.
 
-## 📂 Data Model (CSV Schema)
-
-To upload your own data, ensure your CSV follows this format:
-`date, product, revenue, units_sold, region`
-
-Example:
-`2024-03-01, CloudSync Pro, 125000, 450, North`
-
-## 📄 License
-Baarez is a proprietary product of the development team. All rights reserved.
+---
+📄 **License**
+Confidential Assessment Project for Baarez Technology Solutions.
